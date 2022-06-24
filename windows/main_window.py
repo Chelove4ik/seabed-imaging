@@ -11,3 +11,4 @@ class MainWindow(QMainWindow):
 
     def open_file(self):
         pass
+
