@@ -1,5 +1,4 @@
 import sys
-import iofile
 
 from PyQt5.QtWidgets import QApplication
 
