@@ -8,3 +8,6 @@ class MainWindow(QMainWindow):
         uic.loadUi('ui/main.ui', self)
 
         self.pb_open.clicked.connect(self.open_file)
+
+    def open_file(self):
+        pass
