@@ -1,6 +1,7 @@
 import string
 
 import cv2
+import numpy as np
 
 
 def read_file(path: string):
@@ -8,7 +9,9 @@ def read_file(path: string):
     with open(path, 'r') as data_file:
         for line in data_file:
             arr.append(list(map(float, line.split())))
-    return arr
+
+    np_array = np.array(arr, dtype=np.float64)
+    return np_array
 
 
 def write_file(path, img):
