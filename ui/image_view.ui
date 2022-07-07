@@ -20,7 +20,7 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGraphicsView" name="imageView">
+   <widget class="QGraphicsView" name="gv_image">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -30,7 +30,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QSlider" name="sliderString">
+   <widget class="QSlider" name="s_size">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -43,7 +43,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="sliderScale">
+   <widget class="QSlider" name="s_line">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -69,7 +69,7 @@
      <string>Строка:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelCountString">
+   <widget class="QLabel" name="l_line">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -95,7 +95,7 @@
      <string>Маштаб:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelCountScale">
+   <widget class="QLabel" name="l_size">
     <property name="geometry">
      <rect>
       <x>800</x>
@@ -109,10 +109,13 @@
     </property>
    </widget>
    <widget class="QPushButton" name="home">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>150</y>
+      <x>50</x>
+      <y>650</y>
       <width>91</width>
       <height>71</height>
      </rect>
@@ -130,9 +133,9 @@ background-repeat: none;
      <string notr="true"/>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QWidget" name="w_lin" native="true">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -158,43 +161,17 @@ background-repeat: none;
       <string>Параметры для линейной функции</string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>40</y>
-       <width>104</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>40</y>
        <width>41</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
       <string>L_d = </string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="textEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>70</y>
-       <width>104</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -210,8 +187,28 @@ background-repeat: none;
       <string>µ = </string>
      </property>
     </widget>
+    <widget class="QSpinBox" name="sb_ld">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>40</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="sb_u">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>70</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
-   <widget class="QWidget" name="widget_2" native="true">
+   <widget class="QWidget" name="w_select" native="true">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -251,7 +248,7 @@ background-repeat: none;
      <property name="title">
       <string/>
      </property>
-     <widget class="QRadioButton" name="radioButton">
+     <widget class="QRadioButton" name="rb_lin">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -263,8 +260,11 @@ background-repeat: none;
       <property name="text">
        <string>Линейная функция отрисовки</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QRadioButton" name="rb_log">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -279,7 +279,7 @@ background-repeat: none;
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pb_draw">
     <property name="geometry">
      <rect>
       <x>820</x>
@@ -295,7 +295,7 @@ background-repeat: none;
      <string>Нарисовать</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_3" native="true">
+   <widget class="QWidget" name="w_log" native="true">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -326,29 +326,25 @@ background-repeat: none;
        <x>10</x>
        <y>40</y>
        <width>21</width>
-       <height>16</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
       <string>a = </string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_3">
+    <widget class="QSpinBox" name="ab_a">
      <property name="geometry">
       <rect>
        <x>40</x>
        <y>40</y>
-       <width>104</width>
-       <height>21</height>
+       <width>101</width>
+       <height>20</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

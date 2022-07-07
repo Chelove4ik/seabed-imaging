@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
 from iofile import read_file
-from ui.main_window import Ui_MainWindow
+from ui.main import Ui_MainWindow
 from windows.image_window import ImageWindow
 
 
