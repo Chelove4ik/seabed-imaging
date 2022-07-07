@@ -7,7 +7,7 @@ from ui.utils import create_py_from_ui_folder, check_and_create_py_from_ui
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--recreate_uis', const=True)
+    parser.add_argument('--recreate_uis', const=True, nargs='?')
     args = parser.parse_args()
 
     if args.recreate_uis is not None:
