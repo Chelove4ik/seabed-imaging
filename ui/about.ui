@@ -68,8 +68,8 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="font">
      <font>
-      <family>Mistral</family>
-      <pointsize>16</pointsize>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>14</pointsize>
       <italic>false</italic>
      </font>
     </property>
