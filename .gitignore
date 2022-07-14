@@ -195,3 +195,5 @@ cython_debug/
 
 .ui/*.py
 !.ui/utils.py
+
+.qt_for_python
