@@ -21,6 +21,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGraphicsView" name="gv_image">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -187,7 +190,7 @@ background-repeat: none;
       <string>µ = </string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="sb_ld">
+    <widget class="QDoubleSpinBox" name="sb_ld">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -196,8 +199,14 @@ background-repeat: none;
        <height>20</height>
       </rect>
      </property>
+     <property name="decimals">
+      <number>4</number>
+     </property>
+     <property name="maximum">
+      <double>500.000000000000000</double>
+     </property>
     </widget>
-    <widget class="QSpinBox" name="sb_u">
+    <widget class="QDoubleSpinBox" name="sb_u">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -205,6 +214,12 @@ background-repeat: none;
        <width>101</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="decimals">
+      <number>6</number>
+     </property>
+     <property name="maximum">
+      <double>100.000000000000000</double>
      </property>
     </widget>
    </widget>
@@ -333,7 +348,7 @@ background-repeat: none;
       <string>a = </string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="ab_a">
+    <widget class="QSpinBox" name="sb_a">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -342,6 +357,92 @@ background-repeat: none;
        <height>20</height>
       </rect>
      </property>
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QScrollArea" name="sa_image">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>160</y>
+      <width>801</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>799</width>
+       <height>449</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="l_image">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="w_image" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>120</width>
+        <height>80</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QFrame" name="f_image">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>521</width>
+        <height>511</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>500</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>500</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

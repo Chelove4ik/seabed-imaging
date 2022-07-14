@@ -1,4 +1,5 @@
 pyqt5==5.15.4
 pyqt5-tools==5.15.4.3.2
-numpy==1.23.0
+numpy==1.22.4
 opencv-python==4.6.0.66
+numba==0.55.2

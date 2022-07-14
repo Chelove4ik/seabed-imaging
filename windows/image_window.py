@@ -1,6 +1,9 @@
-from PyQt5.QtWidgets import QMainWindow
+from PIL.ImageQt import ImageQt
+from PyQt5.QtWidgets import QMainWindow, QGraphicsScene, QSizePolicy
 
+from mymath.mymath import function364, function43
 from ui.image_view import Ui_MainWindow
+from windows.image_widget import Image
 
 
 class ImageWindow(QMainWindow):
@@ -10,11 +13,17 @@ class ImageWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.array = array
-        self.draw_image()
 
         self.ui.w_log.hide()
         self.ui.rb_lin.clicked.connect(self.change_current_widget)
         self.ui.rb_log.clicked.connect(self.change_current_widget)
+
+        self.ui.pb_draw.clicked.connect(self.draw_image)
+
+        self.scene = QGraphicsScene()
+        self.ui.gv_image.setScene(self.scene)
+
+        self.ui.sa_image.setWidget(Image())
 
     def change_current_widget(self):
         if self.ui.rb_lin.isChecked():
@@ -25,4 +34,16 @@ class ImageWindow(QMainWindow):
             self.ui.w_log.show()
 
     def draw_image(self):
-        pass
+        if self.ui.rb_lin.isChecked():
+            image = function364(self.ui.sb_ld.value(), self.ui.sb_u.value(), self.array)
+
+        if self.ui.rb_log.isChecked():
+            image = function43(self.ui.sb_a.value(), self.array)
+
+        image = image.reduce(10)
+        image = ImageQt(image)
+
+        self.ui.sa_image.widget().set_image(image)
+        self.ui.sa_image.widget().setGeometry(0, 0, image.size().width(), image.size().height())
+
+        print("done paint")
