@@ -36,10 +36,11 @@ class ImageWindow(QMainWindow):
     def draw_image(self):
         if self.ui.rb_lin.isChecked():
             image = function364(self.ui.sb_ld.value(), self.ui.sb_u.value(), self.array)
+            image.save(f'lin_latest.png')
 
         if self.ui.rb_log.isChecked():
             image = function43(self.ui.sb_a.value(), self.array)
-
+            image.save(f'log_latest.png')
         image = image.reduce(10)
         image = ImageQt(image)
 

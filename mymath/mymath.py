@@ -16,7 +16,7 @@ def function43(test, arr):
                 1 / arr[x][y]
                 sr = int((255 * math.log(round((test - 1) / arr[x][y] + 1), int(test))))
                 draw.point((y, x), (sr, sr, sr))
-            except ZeroDivisionError:
+            except Exception:
                 sr = int(0.4)
                 draw.point((y, x), (sr, sr, sr))
     return image
